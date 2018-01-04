@@ -10,7 +10,8 @@ The purpose of this web app is to provide a way to create sprite from a list of 
     * [Grunt](https://gruntjs.com/)
 
 ## Getting Started
-Download the package, go to the installer folder then under your os folder, launcher the *installer* then the *run* files
+Download the package, go to the installer folder then under __your os folder*__, launcher the *installer* then the *run* files
+__*__only windows installer are available yet
 
 > ##### In case it went wrong:
 > The installer will go to your __project root folder__ and run __npm install__.
