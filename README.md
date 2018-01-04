@@ -26,7 +26,7 @@ By default, the web site will be accessible with the following url: http://local
 ## How to use
 
 #### SVG Spriter Website
-![SVG Spriter Website](../github.resume/SVG_SPRITE_GENERATOR_ws.png "SVG Spriter Website")
+![SVG Spriter Website](/assets.readme/SVG_SPRITE_GENERATOR_ws.png "SVG Spriter Website")
 
 Upload the __svg files__ you want to sprite, then click on __generate__
 * Features:
@@ -55,14 +55,14 @@ zip
 ##### Description:
 
 * icons.html: An HTML sprite preview, to see the sprite result and how it could be used (scaling, etc)
-![HTML sprite preview](../github.resume/SVG_CSS_sprite_preview_svg-sprite.png "HTML sprite preview")
+![HTML sprite preview](/assets.readme/SVG_CSS_sprite_preview_svg-sprite.png "HTML sprite preview")
 
 * style
   * icons.css: stylesheet file that consumes the svg sprite (released from less file)
   * less 
     * icons.less:  less file that consumes the svg sprite
   * svg
-    * ![sprite file](../github.resume/sprite.png "sprite sprite file")
+    * ![sprite file](assets.readme/sprite.png "sprite sprite file")
     icons.svg: The actual svg sprite 
   
 ## External tools
