@@ -14,7 +14,7 @@ Download the package, go to the installer folder then under __your os folder*__,
 
 Only windows installer are available yet
 
-> ##### In case it went wrong or other os:
+> ### In case it went wrong or other os:
 > The installer will go to your __project root folder__ and run __npm install__.
 Then, it will go to the child folder __[root]\public\generator\grunt\sprite__ and run __npm install__.
 
