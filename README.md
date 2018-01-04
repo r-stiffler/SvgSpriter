@@ -54,16 +54,16 @@ zip
 
 ##### Description:
 
-* icons.html: An HTML sprite preview, to see the sprite result and how it could be used (scaling, etc)
+* __icons.html__: An HTML sprite preview, to see the sprite result and how it could be used (scaling, etc)
 ![HTML sprite preview](/assets.readme/SVG_CSS_sprite_preview_svg-sprite.png "HTML sprite preview")
 
-* style
-  * icons.css: stylesheet file that consumes the svg sprite (released from less file)
-  * less 
-    * icons.less:  less file that consumes the svg sprite
-  * svg
+* __style__
+  * __icons.css__: stylesheet file that consumes the svg sprite (released from less file)
+  * __less__
+    * __icons.less__:  less file that consumes the svg sprite
+  * __svg__
     * ![sprite file](assets.readme/sprite.png "sprite sprite file")
-    icons.svg: The actual svg sprite 
+    __icons.svg__: The actual svg sprite 
   
 ## External tools
 
