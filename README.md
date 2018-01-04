@@ -1,9 +1,6 @@
 # Svg Spriter
 
 The purpose of this web app is to provide a way to create sprite from a list of svg files.
-For those of you that are willing to optimize your web site.
-
-## How it works
 
 ## Prerequisites
 
@@ -21,11 +18,11 @@ Then, it will go to the child folder __[root]\public\generator\grunt\sprite__ an
 
 The __run__ file will launch the node process, keep it running in order to let the web site up and running.
 
-By default, the web site will be accessible with the following url: http://localhost:3000
+By default, the web site will be accessible by the following url: http://localhost:3000
 
 ## How to use
 
-#### SVG Spriter Website
+### SVG Spriter Website
 ![SVG Spriter Website](/assets.readme/SVG_SPRITE_GENERATOR_ws.png "SVG Spriter Website")
 
 Upload the __svg files__ you want to sprite, then click on __generate__
@@ -37,9 +34,9 @@ Upload the __svg files__ you want to sprite, then click on __generate__
   * prefix css/less class name
   * in between svg padding
 
-#### The result:
+### The result
 
-A zip file with the following content will be generated:
+A zip file will be generated, with the following content:
 
 ```
 zip
