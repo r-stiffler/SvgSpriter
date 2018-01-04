@@ -18,6 +18,12 @@ Only windows installer are available yet
 > The installer will go to your __project root folder__ and run __npm install__.
 Then, it will go to the child folder __[root]\public\generator\grunt\sprite__ and run __npm install__.
 
+> Finally, change the __NODE_ENV__ value to __production__, and enter the following command:
+
+```
+node bin\www
+```
+
 The __run__ file will launch the node process, keep it running in order to let the web site up and running.
 
 By default, the web site will be accessible by the following url: http://localhost:3000
