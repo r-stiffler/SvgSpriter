@@ -1,0 +1,88 @@
+{{#bug}}
+{{/bug}}
+@svgUrl: replace("{{svgPath}}", "&#x2F;", "/");
+
+@svg-width: {{spriteWidth}};
+@svg-height: {{spriteHeight}};
+
+.toCenterMargin(@width, @height) {
+    margin-top: -(unit(@height/2, px));
+    margin-left: -(unit(@width/2, px));
+}
+
+.toScaleIcon(@width, @height, @ratio, @name) {
+    .{{cssPrefix}}@{name} {
+        background-size: unit(round(@width*@ratio, 1), px) unit(round(@height*@ratio, 1), px);
+{{#shapes}}
+
+			&.{{cssPrefix}}{{name}} {
+				width: unit(round(({{width.inner}}+2*{{svg_shape_padding}})*@ratio, 1), px);
+				height: unit(round(({{height.inner}}+2*{{svg_shape_padding}})*@ratio, 1), px);
+				background-position: unit(round({{position.absolute.x}}*@ratio, 1), px) unit(round({{position.absolute.y}}*@ratio, 1), px);
+			}
+{{/shapes}}
+    }
+}
+
+.toScaleCenterMargin(@ratio, @name) {
+	.{{cssPrefix}}@{name} {
+{{#shapes}}
+			&.icocenter.{{cssPrefix}}{{name}} {
+				.toCenterMargin(round(({{width.inner}}+2*{{svg_shape_padding}})*@ratio, 1), round(({{height.inner}}+2*{{svg_shape_padding}})*@ratio, 1));
+			}
+{{/shapes}}
+    }
+}
+
+.icon {
+    background-image: url(@svgUrl);
+    background-repeat: no-repeat;
+    display: inline-block;
+
+{{#shapes}}
+	&.{{cssPrefix}}{{name}} {
+		width: unit({{width.inner}}+2*{{svg_shape_padding}}, px);
+		height: unit({{height.inner}}+2*{{svg_shape_padding}}, px);
+		background-position: unit(round({{position.absolute.x}}, 1), px) unit(round({{position.absolute.y}}, 1), px);
+	}
+{{/shapes}}
+}
+
+/*region Scaling*/
+.toScaleIcon(@svg-width, @svg-height, 0.25, min25p);
+
+.toScaleIcon(@svg-width, @svg-height, 0.5, min50p);
+
+.toScaleIcon(@svg-width, @svg-height, 1.5, 50p);
+
+.toScaleIcon(@svg-width, @svg-height, 2, 100p);
+
+.toScaleIcon(@svg-width, @svg-height, 4, 400p);
+/*end region Scaling*/
+
+/*region icocenter*/
+.icocenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+{{#shapes}}
+	&.{{cssPrefix}}{{name}} {
+		.toCenterMargin({{width.inner}}, {{height.inner}});
+    }
+{{/shapes}}
+}
+
+/*End region icocenter*/
+
+/*region Scaling icocenter*/
+.toScaleCenterMargin(0.25, min25p);
+
+.toScaleCenterMargin(0.5, min50p);
+
+.toScaleCenterMargin(1.5, 50p);
+
+.toScaleCenterMargin(2, 100p);
+
+.toScaleCenterMargin(4, 400p);
+/*end region Scaling icocenter*/

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>SVG CSS sprite preview | svg-sprite</title>
+    <link rel="stylesheet" href="{{cssPath}}">
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+            ul li {
+                text-align: center;
+                margin: 10px;
+                display: inline-block;
+                min-width: 200px;
+                min-height: 200px;
+                background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMzMz0oyR4AAAARSURBVAgdY/jPwIAVYRf9DwB+vw/xbMOy9QAAAABJRU5ErkJggg==");
+                position: relative;
+            }
+
+            ul.black li {
+                background-color: #000;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SVG CSS sprite preview</h1>
+    </header>
+    <section>
+        <h2>scaling 1.1</h2>
+        <ul>
+            {{#shapes}}
+            <li title="{{name}}">
+                <div>
+                    <span class="icon icocenter {{cssPrefix}}{{name}}"></span>
+                </div>
+            </li>
+            {{/shapes}}
+        </ul>
+        <br style="clear:both;" />
+
+        <h2>scaling 0.5</h2>
+        <ul>
+            {{#shapes}}
+            <li title="{{name}}">
+                <div>
+                    <span class="icon {{cssPrefix}}min50p icocenter {{cssPrefix}}{{name}}"></span>
+                </div>
+            </li>
+            {{/shapes}}
+        </ul>
+        <br style="clear:both;" />
+
+        <h2>scaling 1.5</h2>
+        <ul>
+            {{#shapes}}
+            <li title="{{name}}">
+                <div>
+                    <span class="icon {{cssPrefix}}50p icocenter {{cssPrefix}}{{name}}"></span>
+                </div>
+            </li>
+            {{/shapes}}
+        </ul>
+        <br style="clear:both;" />
+
+        <h2>scaling 2</h2>
+        <ul>
+            {{#shapes}}
+            <li title="{{name}}">
+                <div>
+                    <span class="icon {{cssPrefix}}100p icocenter {{cssPrefix}}{{name}}"></span>
+                </div>
+            </li>
+            {{/shapes}}
+        </ul>
+        <br style="clear:both;" />
+        <h2>scaling 4</h2>
+        <ul>
+            {{#shapes}}
+            <li title="{{name}}">
+                <div>
+                    <span class="icon {{cssPrefix}}400p icocenter {{cssPrefix}}{{name}}"></span>
+                </div>
+            </li>
+            {{/shapes}}
+        </ul>
+        <br style="clear:both;" />
+    </section>
+    <footer>
+        <p>Generated at {{date}} by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+    </footer>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.each($('ul li'), function () {
+                $(this).css('width', ($(this).find('div span').width() + 50) + 'px');
+                $(this).css('height', ($(this).find('div span').height() + 50) + 'px');
+            });
+            $.each($('h2'), function () {
+                $(this).after('<a href="#" onclick="javascript:togglePicsBackground(this);"> Toggle Background </a>');
+            });
+        });
+
+        function togglePicsBackground(elem) {
+            $.each($('ul'), function () {
+                if ($(this).hasClass('black')) {
+                    $(this).removeClass('black');
+                } else {
+                    $(this).addClass('black');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

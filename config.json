@@ -1,0 +1,6 @@
+{
+  "svgFolderLimit": 0,
+  "messages": {
+    "uploadLimitReach": "Upload limit reached. If you need bigger svg sprite, please install sprite_generator locally => npm install sprite_generator"
+  }
+}

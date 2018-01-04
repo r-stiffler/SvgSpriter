@@ -1,0 +1,48 @@
+extends layout
+
+block content 
+    div.files-target
+        if(uploaded != null && uploaded.length >= 0)
+            each svg in uploaded
+                div.file-uploaded
+                    span.glyphicon.glyphicon-remove
+                    div
+                        img(src="data:image/svg+xml;base64,#{svg.base64}")
+                    div.filename= svg.name
+    div.toolbar
+        div.spriter
+            div.btns
+                div="Upload svg files"     
+                div.btn-upload
+                    input.input-file#svgs(type="file", multiple="multiple", accept="image/*", name="svgs")
+                    label.input-file-trigger(for="svgs", tabindex="0")="UPLOAD SVG FILES..."
+                div.btn-switch
+                    div(onclick="javascript:WebGenerator.togglePicsBackground(this);")
+                        span.glyphicon.glyphicon-resize-horizontal
+                        span="SWITCH BACKGRND"
+                div.btn-new
+                    a(href="#{virtualDirPath}/new")="NEW SESSION"
+               
+                div.right.btn-generate
+                    if(uploaded != null && uploaded.length >= 0)
+                        button#btnSprite GENERATE SPRITE
+                    else
+                        button#btnSprite(disabled="disabled") GENERATE SPRITE
+
+                div.right.toggle-title
+                    span="Parameters"
+                    span.glyphicon.glyphicon-chevron-up
+                
+        
+        div.parameter-section
+            div
+                span="CSS CLASS PREFIX"
+                div.css-like
+                    span="."
+                    input(name="prefix" id="prefix" type="text" value="icon")
+                    span="-alert "
+            div
+                span="SHAPE PADDING"
+                div.numeric
+                    input(name="padding" id="padding" type="number" value="1")
+                    span=" px"

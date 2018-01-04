@@ -1,0 +1,29 @@
+{{#bug}}
+{{/bug}}
+.icon, .icon-responsive {
+    background-image: url('{{#escape}}{{sprite}}{{/escape}}');
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+
+{{#shapes}}
+	.icon-{{name}} {
+		width:{{width.outer}}px;
+		height:{{height.outer}}px;
+		background-position: {{position.absolute.xy}};
+	}
+{{/shapes}}
+
+.icocenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+{{#shapes}}
+	.icocenter.icon-{{name}} {
+        margin-top: -{{height.outer}}px;
+        margin-left: -{{width.outer}}px;
+    }
+{{/shapes}}
