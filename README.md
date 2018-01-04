@@ -1,6 +1,6 @@
 # Svg Spriter
 
-The purpose of this web app is to provide a way to create sprite from a list of svg files.
+A website ready to use that provides a way to create sprite from a list of svg file.
 
 ## Prerequisites
 
