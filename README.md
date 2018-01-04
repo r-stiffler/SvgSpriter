@@ -21,6 +21,7 @@ Then, it will go to the child folder __[root]\public\generator\grunt\sprite__ an
 The __run__ file will launch the node process, keep it running in order to let the web site up and running.
 
 By default, the web site will be accessible by the following url: http://localhost:3000
+To change that, go to the __bin\www file__.
 
 ## How to use
 
