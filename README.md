@@ -28,6 +28,11 @@ By default, the web site will be accessible by the following url: http://localho
 ![SVG Spriter Website](/assets.readme/SVG_SPRITE_GENERATOR_ws.png "SVG Spriter Website")
 
 Upload the __svg files__ you want to sprite, then click on __generate__
+
+It will upload the files under the folder: __[root]\public\generator\svgs\session_guid\\__
+
+And generate the content under a temporary folder: __[root]\public\generator\releases\sprite\_[timestamp]\\__
+
 * Features:
   * Switch to black/white background
   * New Session: will erase all current uploaded svg files and create a new spriting session.
@@ -61,7 +66,7 @@ zip
   * __less__
     * __icons.less__:  less file that consumes the svg sprite
   * __svg__
-    * ![sprite file](assets.readme/sprite.png "sprite sprite file")
+    * ![sprite file](/assets.readme/sprite.png "sprite sprite file")
     __icons.svg__: The actual svg sprite 
   
 ## External tools
@@ -77,6 +82,3 @@ This aggregate software is using the following community *grunt* library:
 > NOTE: I use Visual Studio to create this, so the folder structure might not be usual (www file, bin folder, etc)
 
 ### ENJOY !
-
-
-
