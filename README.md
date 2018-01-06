@@ -1,6 +1,6 @@
 # Svg Spriter
 
-A website ready to use that provides a way to create sprite from a list of svg file.
+A website ready to deploy that provides a way to create sprite from a list of svg file.
 
 ## Prerequisites
 
