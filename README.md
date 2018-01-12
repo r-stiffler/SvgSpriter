@@ -89,8 +89,8 @@ This aggregate software is using the following community *grunt* library:
 > NOTE: I use Visual Studio to create this, so the folder structure might not be usual (www file, bin folder, etc)
 
 ### Legal
-Copyright © 2018 Romain Stiffler [https://rstiffler.net](https://rstiffler.net).
+Copyright Â© 2018 Romain Stiffler [https://rstiffler.net](https://rstiffler.net).
 
-This is licensed under the terms of the [MIT license](license.txt).
+This is licensed under the terms of the [MIT license](License.txt).
 
 ### ENJOY !
