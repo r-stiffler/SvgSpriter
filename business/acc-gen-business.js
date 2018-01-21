@@ -1,14 +1,22 @@
 const _fs = require('fs');
+var path = require('path');
 var config = require('./config');
 var AccGenBusiness = {
-    
+
     createFolderIfNotExists: function (folderPath) {
-        //var _fs = require('fs');
-        if (_fs.existsSync(folderPath)) return null;
-        var _err = _fs.mkdirSync(folderPath);
+        var _err;
+        var folderPathSplit = folderPath.split('\\');
+        var tempFolderPath = folderPathSplit[0];
+        for (var i = 1; i < folderPathSplit.length; i++) {
+            tempFolderPath = path.join(tempFolderPath, folderPathSplit[i]);
+            if (!_fs.existsSync(tempFolderPath)) {
+                _err = _fs.mkdirSync(tempFolderPath);
+                if (_err) return _err;
+            }
+        }
         return _err;
     },
-    
+
     savefile: function (fromFilePath, toFilePath) {
         //var _fs = require('fs');
         var _fromFileContent = _fs.readFileSync(fromFilePath);
@@ -16,7 +24,7 @@ var AccGenBusiness = {
         var _err = _fs.unlinkSync(fromFilePath);
         return _err;
     },
-    
+
     removeFilesFromPath: function (paths) {
         //var _fs = require('fs');
         var err;
@@ -29,7 +37,7 @@ var AccGenBusiness = {
             }
         };
     },
-    
+
     removeFilesFromDirectory: function (pathDir) {
         //var _fs = require('fs');
         if (_fs.existsSync(pathDir)) {
@@ -47,10 +55,10 @@ var AccGenBusiness = {
             });
         }
     },
-    
-    removeFolderRecursive : function (path) {
+
+    removeFolderRecursive: function (path) {
         //var _fs = require('fs');
-        
+
         if (_fs.existsSync(path)) {
             _fs.readdirSync(path).forEach(function (file, index) {
                 var curPath = path + "/" + file;
@@ -64,50 +72,50 @@ var AccGenBusiness = {
         }
     },
     //},
-    
+
     success: function (res, obj) {
         res.status(200);
         var result = {
             success: true
         };
-        
+
         if (obj) {
             result.data = obj;
         }
-        
+
         res.json(result);
     },
-    
+
     error: function (res, obj) {
         res.status(500);
         var result = {
             success: false
         };
-        
+
         if (obj) {
             result.data = obj;
         }
-        
+
         res.json(result);
     },
-    
+
     strFormat: function () {
         var args = arguments;
         if (typeof (args[0]) === 'undefined') {
             throw "Error - first argument must not be null";
         }
-        
+
         return args[0].replace(/{(\d+)}/g, function (match, number) {
             var index = parseInt(number, 0) + 1;
             return (typeof args[index] !== 'undefined') ? args[index] : match;
         });
     },
-    
-    base64_encode : function (file) {
+
+    base64_encode: function (file) {
         // convert binary data to base64 encoded string
         return new Buffer(file).toString('base64');
     },
-    
+
     getSVGBase64FromDirectory: function (folderPath) {
         var svgs = [];
         //var _fs = require('fs');
@@ -130,14 +138,14 @@ var AccGenBusiness = {
                 for (var i = 0; i < files.length; i++) {
                     total += this.getFilesizeInBytes(path + "/" + files[i]);
                 };
-                
+
                 if (config.svgFolderLimit <= total) {
                     return config.messages.uploadLimitReach;
                 }
             }
         }
     },
-    
+
     getFilesizeInBytes: function (filename) {
         //var _fs = require('fs');
         var stats = _fs.statSync(filename)

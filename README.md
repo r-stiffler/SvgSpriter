@@ -1,6 +1,6 @@
 # Svg Spriter
 
-A website ready to deploy that provides a way to create sprite from a list of svg file.
+The purpose of this web app is to provide a way to create sprite from a list of svg files.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ A website ready to deploy that provides a way to create sprite from a list of sv
     * [Grunt](https://gruntjs.com/)
 
 ## Getting Started
-Download the package, go to the installer folder then under __your os folder*__, launch the *installer* then the *run* files.
+Download the package, go to the installer folder then under __your os folder*__, launcher the *installer* then the *run* files.
 
 Only windows installer are available yet
 
@@ -85,12 +85,5 @@ This aggregate software is using the following community *grunt* library:
 * [grunt-svg-sprite](https://www.npmjs.com/package/grunt-svg-sprite)
 
 ---
-
-> NOTE: I use Visual Studio to create this, so the folder structure might not be usual (www file, bin folder, etc)
-
-### Legal
-Copyright © 2018 Romain Stiffler [https://rstiffler.net](https://rstiffler.net).
-
-This is licensed under the terms of the [MIT license](License.txt).
 
 ### ENJOY !

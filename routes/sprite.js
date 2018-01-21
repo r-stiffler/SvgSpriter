@@ -3,11 +3,18 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 var accGenBusiness = require('../business/acc-gen-business.js').AccGenBusiness;
+
+var generatorPath = path.join(__dirname, '..', 'public', 'generator');
+var svgPath = path.join(generatorPath, 'svgs');
+var releasePath = path.join(generatorPath, 'releases');
+accGenBusiness.createFolderIfNotExists(svgPath);
+accGenBusiness.createFolderIfNotExists(releasePath);
+
 var router = express.Router();
 
 router
     .post('/uploadsvg', function (req, res) {
-        var subfolderPath = path.join(__dirname, '..', 'public', 'generator', 'svgs', req.session['svgStore']);
+        var subfolderPath = path.join(svgPath, req.session['svgStore']);
         var folderCreationError = accGenBusiness.createFolderIfNotExists(subfolderPath);
         if (folderCreationError) {
             accGenBusiness.error(res, folderCreationError);
@@ -41,7 +48,7 @@ router
     })
 
     .post('/removePicture', function (req, res) {
-        var _err = accGenBusiness.removeFilesFromPath([path.join(__dirname, '..', 'public', 'generator', 'svgs', req.session['svgStore'], req.body.path)]);
+        var _err = accGenBusiness.removeFilesFromPath([path.join(svgPath, req.session['svgStore'], req.body.path)]);
         if (_err) {
             accGenBusiness.error(res, _err);
         } else {
@@ -62,7 +69,7 @@ router
             if (_err) {
                 console.log(_err);
             }
-            _err = accGenBusiness.removeFolderRecursive(path.join(__dirname, '..', 'public', 'generator', 'releases', 'sprite_' + timestamp));
+            _err = accGenBusiness.removeFolderRecursive(path.join(releasePath, 'sprite_' + timestamp));
             if (_err) {
                 console.log(_err);
             }
@@ -84,11 +91,11 @@ router
             });
         };
         var gruntCmd = accGenBusiness.strFormat('grunt --timestamp={0} --svgFolder={1} --cssPrefix={2} --padding={3}', timestamp, svgFolder, cssPrefix, padding);
-        runCmd(gruntCmd, { cwd: path.join(__dirname, '..', 'public', 'generator', 'grunt', 'sprite') }, function (err, results) {
+        runCmd(gruntCmd, { cwd: path.join(generatorPath, 'grunt', 'sprite') }, function (err, results) {
             if (err) {
                 console.log(err);
             } else {
-                var zipFilePath = path.join(__dirname, '..', 'public', 'generator', 'releases', 'sprite_' + timestamp + '.zip');
+                var zipFilePath = path.join(releasePath, 'sprite_' + timestamp + '.zip');
                 var filename = path.basename(zipFilePath);
                 res.setHeader('Content-disposition', 'attachment; filename=' + filename);
                 res.setHeader('Content-type', 'application/zip');
